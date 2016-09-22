@@ -67,7 +67,7 @@
 				</div>
 				<div class="control-group {{ $errors->has('password') ? ' has-error' : '' }}">
 					<div class="pw controls">
-						<input type="password" name="upw" placeholder="Password" class='input-block-level' data-rule-required="true">
+						<input type="password" name="password" placeholder="Password" class='input-block-level' data-rule-required="true">
 					</div>
 				</div>
 				<div class="submit">

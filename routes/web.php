@@ -12,6 +12,14 @@
 */
 
 Auth::routes();
+Route::get('/','Auth\LoginController@showLoginForm');
+Route::get('/home', ['as'=>'home', 'uses' => 'PagesController@getHome', 'middleware' => 'auth']);
 
-//Route::get('/home', 'HomeController@index');
-Route::get('/', ['as'=>'home', 'uses' => 'PagesController@getHome', 'middleware' => 'auth']);
+//permission
+Route::group(['prefix'=>'permission'], function() {
+    Route::get('/create', [
+        'as' => 'admin.create.permission',
+        'middleware' => ['auth'],
+        'uses' => 'PermissionsController@create'
+    ]);
+});
